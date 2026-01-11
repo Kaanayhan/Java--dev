@@ -10,10 +10,8 @@ public class JavaOdev {
         String[] takimlar = new String[4];
         boolean takimlarGirildi = false;
 
-        // Skorlar: [Hafta][4 Skor (H1, D1, H2, D2)]
         int[][] haftalikSkorlar = new int[6][4];
 
-        // Fikstür: Her hafta oynayacak takımların indisleri
         int[][] fikstur = {
                 { 0, 3, 1, 2 }, { 0, 2, 3, 1 }, { 0, 1, 2, 3 }, // 1. Devre
                 { 3, 0, 2, 1 }, { 2, 0, 1, 3 }, { 1, 0, 3, 2 } // 2. Devre
@@ -27,11 +25,11 @@ public class JavaOdev {
         }
 
         while (true) {
-            System.out.println("\n------    ANA MENÜ    ------");
+            System.out.println("------    ANA MENÜ    ------");
             System.out.println("1. Takım İsimlerini Gir");
             System.out.println("2. Fikstürü Görüntüle");
             System.out.println("3. Haftalık Skorları Rastgele Ata");
-            System.out.println("4. Puan Durumunu Göster (Sıralı)");
+            System.out.println("4. Puan Durumunu Göster");
             System.out.println("5. Çıkış");
             System.out.print("Seçiminiz: ");
 
@@ -55,21 +53,21 @@ public class JavaOdev {
                     break;
 
                 case '2':
-                    System.out.println("\n--- SEZON FİKSTÜRÜ ---");
+                    System.out.println("--- SEZON FİKSTÜRÜ ---");
                     for (int i = 0; i < 6; i++) {
                         if (i == 0)
                             System.out.println("[1. DEVRE]");
                         if (i == 3)
-                            System.out.println("\n[2. DEVRE]");
+                            System.out.println("[2. DEVRE]");
 
                         System.out.printf("%d. HAFTA: %s - %s | %s - %s%n",
-                                (i + 1), takimlar[fikstur[i][0]], takimlar[fikstur[i][1]],
-                                takimlar[fikstur[i][2]], takimlar[fikstur[i][3]]);
+                                (i + 1), "Ev sahibi takım = " + takimlar[fikstur[i][0]], takimlar[fikstur[i][1]],
+                                "Ev sahibi takım = " + takimlar[fikstur[i][2]], takimlar[fikstur[i][3]]);
                     }
                     break;
 
                 case '3':
-                    System.out.println("\n--- SKORLAR ATANIYOR ---");
+                    System.out.println("--- SKORLAR ATANIYOR ---");
                     for (int i = 0; i < 6; i++) {
                         if (haftalikSkorlar[i][0] == -1) {
                             for (int j = 0; j < 4; j++)
@@ -84,7 +82,6 @@ public class JavaOdev {
                     break;
 
                 case '4':
-                    // Değişken isimleri detaylandırıldı
                     int[] galibiyet = new int[4];
                     int[] beraberlik = new int[4];
                     int[] yenilgi = new int[4];
@@ -95,7 +92,6 @@ public class JavaOdev {
                     int[] averaj = new int[4];
                     int[] siraliIndisler = { 0, 1, 2, 3 };
 
-                    // İstatistikleri Hesapla
                     for (int h = 0; h < 6; h++) {
                         if (haftalikSkorlar[h][0] == -1)
                             continue;
@@ -136,7 +132,6 @@ public class JavaOdev {
                     for (int i = 0; i < 4; i++)
                         averaj[i] = atilanGol[i] - yenilenGol[i];
 
-                    // Sıralama (Puan ve Averaj kontrolü ile)
                     for (int i = 0; i < 4 - 1; i++) {
                         for (int j = 0; j < 4 - i - 1; j++) {
                             int t1 = siraliIndisler[j];
@@ -150,9 +145,10 @@ public class JavaOdev {
                         }
                     }
 
-                    System.out.println("\n--- PUAN DURUMU (SIRALI) ---");
+                    System.out.println("--- PUAN DURUMU (SIRALI) ---");
                     System.out.printf("%-4s %-15s %-3s %-10s %-10s %-10s %-7s %-7s %-7s %-5s%n",
-                            "Sıra", "Takım", "OynananMaç", "Galibiyet", "Beraberlik", "Yenilgi", "Atılan", "Yenilen", "Averaj",
+                            "Sıra", "Takım", "OynananMaç", "Galibiyet", "Beraberlik", "Yenilgi", "Atılan", "Yenilen",
+                            "Averaj",
                             "Puan");
                     System.out.println(
                             "-----------------------------------------------------------------------------------------");
@@ -164,7 +160,7 @@ public class JavaOdev {
                                 atilanGol[idx], yenilenGol[idx], averaj[idx], puan[idx]);
                     }
                     break;
-
+                    
                 default:
                     System.out.println("Hatalı seçim!");
             }
