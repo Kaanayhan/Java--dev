@@ -38,7 +38,7 @@ public class JavaOdev {
                 break;
 
             if (secim >= '2' && secim <= '4' && !takimlarGirildi) {
-                System.out.println("Önce takımları girmelisiniz.");
+                System.out.println("Önce takım isimlerini belirlemelisiniz.");
                 continue;
             }
 
@@ -60,8 +60,11 @@ public class JavaOdev {
                             System.out.println("[2. DEVRE]");
 
                         System.out.printf("%d. HAFTA: %s - %s | %s - %s%n",
-                                (i + 1), "Ev sahibi takım = " + takimlar[fikstur[i][0]], takimlar[fikstur[i][1]],
-                                "Ev sahibi takım = " + takimlar[fikstur[i][2]], takimlar[fikstur[i][3]]);
+                                (i + 1), 
+                                "Ev sahibi = " + takimlar[fikstur[i][0]],
+                                "Deplasman = " + takimlar[fikstur[i][1]],
+                                "Ev sahibi  = " + takimlar[fikstur[i][2]],
+                                "Deplasman = " + takimlar[fikstur[i][3]]);
                     }
                     break;
 
