@@ -17,7 +17,6 @@ public class JavaOdev {
                 { 3, 0, 2, 1 }, { 2, 0, 1, 3 }, { 1, 0, 3, 2 } // 2. Devre
         };
 
-        // Skorları -1 (oynanmadı) ile başlat
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 4; j++) {
                 haftalikSkorlar[i][j] = -1;
@@ -160,7 +159,7 @@ public class JavaOdev {
                                 atilanGol[idx], yenilenGol[idx], averaj[idx], puan[idx]);
                     }
                     break;
-                    
+
                 default:
                     System.out.println("Hatalı seçim!");
             }
