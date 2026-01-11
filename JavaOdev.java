@@ -24,7 +24,7 @@ public class JavaOdev {
         }
 
         while (true) {
-            System.out.println("------    ANA MENÜ    ------");
+            System.out.println("\n------    ANA MENÜ    ------");
             System.out.println("1. Takım İsimlerini Gir");
             System.out.println("2. Fikstürü Görüntüle");
             System.out.println("3. Haftalık Skorları Rastgele Ata");
@@ -60,7 +60,7 @@ public class JavaOdev {
                             System.out.println("[2. DEVRE]");
 
                         System.out.printf("%d. HAFTA: %s - %s | %s - %s%n",
-                                (i + 1), 
+                                (i + 1),
                                 "Ev sahibi = " + takimlar[fikstur[i][0]],
                                 "Deplasman = " + takimlar[fikstur[i][1]],
                                 "Ev sahibi  = " + takimlar[fikstur[i][2]],
@@ -88,6 +88,8 @@ public class JavaOdev {
                     int[] beraberlik = new int[4];
                     int[] yenilgi = new int[4];
                     int[] puan = new int[4];
+                    int[] evSahibiPuani = new int[4];
+                    int[] deplasmanPuani = new int[4];
                     int[] atilanGol = new int[4];
                     int[] yenilenGol = new int[4];
                     int[] oynananMac = new int[4];
@@ -116,15 +118,19 @@ public class JavaOdev {
 
                             if (evSkor > depSkor) {
                                 puan[ev] += 3;
+                                evSahibiPuani[ev] += 3;
                                 galibiyet[ev]++;
                                 yenilgi[dep]++;
                             } else if (depSkor > evSkor) {
                                 puan[dep] += 3;
+                                deplasmanPuani[dep] += 3;
                                 galibiyet[dep]++;
                                 yenilgi[ev]++;
                             } else {
                                 puan[ev]++;
+                                evSahibiPuani[ev]++;
                                 puan[dep]++;
+                                deplasmanPuani[dep]++;
                                 beraberlik[ev]++;
                                 beraberlik[dep]++;
                             }
@@ -147,19 +153,19 @@ public class JavaOdev {
                         }
                     }
 
-                    System.out.println("--- PUAN DURUMU (SIRALI) ---");
-                    System.out.printf("%-4s %-15s %-3s %-10s %-10s %-10s %-7s %-7s %-7s %-5s%n",
+                    System.out.println("--- PUAN DURUMU ---");
+                    System.out.printf("%-4s %-15s %-12s %-10s %-11s %-9s %-8s %-8s %-8s %-15s %-15s %-5s%n",
                             "Sıra", "Takım", "OynananMaç", "Galibiyet", "Beraberlik", "Yenilgi", "Atılan", "Yenilen",
-                            "Averaj",
-                            "Puan");
+                            "Averaj", "EvSahibiPuanı", "DeplasmanPuanı", "Puan");
                     System.out.println(
-                            "-----------------------------------------------------------------------------------------");
+                            "--------------------------------------------------------------------------------------------------------------------------------------------");
 
                     for (int i = 0; i < 4; i++) {
                         int idx = siraliIndisler[i];
-                        System.out.printf("%-4d %-15s %-3d %-10d %-10d %-10d %-7d %-7d %-7d %-5d%n",
+                        System.out.printf("%-4d %-15s %-12d %-10d %-11d %-9d %-8d %-8d %-8d %-15d %-15d %-5d%n",
                                 (i + 1), takimlar[idx], oynananMac[idx], galibiyet[idx], beraberlik[idx], yenilgi[idx],
-                                atilanGol[idx], yenilenGol[idx], averaj[idx], puan[idx]);
+                                atilanGol[idx], yenilenGol[idx], averaj[idx], evSahibiPuani[idx], deplasmanPuani[idx],
+                                puan[idx]);
                     }
                     break;
 
