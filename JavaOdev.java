@@ -13,8 +13,8 @@ public class JavaOdev {
         int[][] haftalikSkorlar = new int[6][4];
 
         int[][] fikstur = {
-                { 0, 3, 1, 2 }, { 0, 2, 3, 1 }, { 0, 1, 2, 3 }, 
-                { 3, 0, 2, 1 }, { 2, 0, 1, 3 }, { 1, 0, 3, 2 } 
+                { 0, 3, 1, 2 }, { 0, 2, 3, 1 }, { 0, 1, 2, 3 },
+                { 3, 0, 2, 1 }, { 2, 0, 1, 3 }, { 1, 0, 3, 2 }
         };
 
         for (int i = 0; i < 6; i++) {
@@ -140,8 +140,8 @@ public class JavaOdev {
                     for (int i = 0; i < 4; i++)
                         averaj[i] = atilanGol[i] - yenilenGol[i];
 
-                    for (int i = 0; i < 4 - 1; i++) {
-                        for (int j = 0; j < 4 - i - 1; j++) {
+                    for (int i = 0; i < 3; i++) {
+                        for (int j = 0; j < 3 - i; j++) {
                             int t1 = siraliIndisler[j];
                             int t2 = siraliIndisler[j + 1];
 
